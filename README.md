@@ -9,7 +9,7 @@
 ## Quick Start
 
 ```bash
-git clone https://github.com/Kodjocares/phantom-erase.git
+git clone https://github.com/yourusername/phantom-erase.git
 cd phantom-erase
 npm install
 cp .env.example .env   # add your VITE_ANTHROPIC_API_KEY

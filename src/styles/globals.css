@@ -1,0 +1,76 @@
+/* ── PHANTOM ERASE — Global Styles ── */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Oxanium:wght@300;400;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #040508;
+  --surface:  #0a0d12;
+  --surface2: #0f1318;
+  --surface3: #141920;
+  --border:   #1a2233;
+  --border2:  #243044;
+  --accent:   #00ff88;
+  --accent2:  #00c8ff;
+  --accent3:  #ff2d55;
+  --accent4:  #ff9f0a;
+  --accent5:  #bf5af2;
+  --text:     #e8eef7;
+  --text2:    #8899aa;
+  --text3:    #445566;
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-ui:      'Rajdhani', sans-serif;
+  --font-display: 'Oxanium', sans-serif;
+  --glow:  0 0 20px rgba(0,255,136,0.15);
+  --glow2: 0 0 20px rgba(0,200,255,0.15);
+  --glow3: 0 0 20px rgba(255,45,85,0.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* Selection */
+::selection { background: rgba(0,255,136,0.2); color: var(--accent); }
+
+/* Links */
+a { color: inherit; text-decoration: none; }
+
+/* Focus */
+:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+
+/* Utility classes */
+.mono    { font-family: var(--font-mono); }
+.display { font-family: var(--font-display); }
+.text-accent  { color: var(--accent); }
+.text-blue    { color: var(--accent2); }
+.text-red     { color: var(--accent3); }
+.text-orange  { color: var(--accent4); }
+.text-purple  { color: var(--accent5); }
+.text-muted   { color: var(--text3); }
+
+/* Animations */
+@keyframes pulse    { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes scanline { from{transform:translateY(-100%)} to{transform:translateY(100vh)} }
+@keyframes fadeIn   { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes shimmer  { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+
+.fade-in { animation: fadeIn 0.3s ease forwards; }
+
+/* Scanline overlay */
+.scanline-overlay {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
+}
